@@ -9,33 +9,17 @@ import Link from "next/dist/client/link";
 import{Form, FormControl, FormField, FormItem, FormMessage} from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import{useForm} from "react-hook-form";
-const formSchema = z.object({
-    name:z
-        .string()
-        .trim()
-        .min(1, "Name is required")
-        .max(256, "Name cannot exceed 256 characters"),
-    email: z
-        .string()
-        .trim()
-        .min(1, "Email is required")
-        .email("Invalid email address"),
+import { registerSchema } from "../schemas";
+import {useRegister} from "../api/use-register";
 
-    password: z
-        .string()
-        .min(8, "Password must be at least 8 characters")
-        .max(256, "Password cannot exceed 256 characters"),
-});
-
-
-const onsubmit = (values: z.infer<typeof formSchema>) => {
+const onsubmit = (values: z.infer<typeof registerSchema>) => {
     console.log(values);
 }
 
 export const SignupCard =()=>{
-
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver:zodResolver(formSchema),
+    const {mutate} = useRegister();
+    const form = useForm<z.infer<typeof registerSchema >>({
+        resolver:zodResolver(registerSchema),
         defaultValues:{
             name:"",
             email:"",
@@ -134,9 +118,9 @@ export const SignupCard =()=>{
 
             <CardContent className="7px flex items-center justify-center">
 
-                <p>Don&apos;t have an account?
-                     <Link href="/sign-up">
-                     <span className="text-blue-700">&nbsp;Sign Up</span>
+                <p>Already have an account?
+                     <Link href="/sign-in">
+                     <span className="text-blue-700">&nbsp;Sign In</span>
                      </Link>
                 </p>
 

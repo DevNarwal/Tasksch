@@ -19,15 +19,17 @@ import {
     FormItem,
     FormMessage,
 } from "@/components/ui/form";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 import { loginSchema } from "../schemas";
+import { useLogin } from "../api/use-login";
 
 
-const onSubmit = (values: z.infer<typeof loginSchema>) => {
-    console.log(values);
-};
+
+
 
 export const SigninCard = () => {
+    const {mutate} = useLogin();
+
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -35,6 +37,9 @@ export const SigninCard = () => {
             password: "",
         },
     });
+    const onSubmit = (values: z.infer<typeof loginSchema>) => {
+        mutate({json:values});
+    };
 
     return (
         <Card className="w-full h-full md:w-[487px] border-none shadow-none">
@@ -139,9 +144,9 @@ export const SigninCard = () => {
 
             <CardContent className="7px flex items-center justify-center">
 
-                <p>Already have an account?
-                     <Link href="/sign-in">
-                     <span className="text-blue-700">&nbsp;Sign In</span>
+                <p>Don&nbsp;t  have an account?
+                     <Link href="/sign-up">
+                     <span className="text-blue-700">&nbsp;Sign Up</span>
                      </Link>
                 </p>
 
