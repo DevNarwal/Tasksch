@@ -12,9 +12,7 @@ import{useForm} from "react-hook-form";
 import { registerSchema } from "../schemas";
 import {useRegister} from "../api/use-register";
 
-const onsubmit = (values: z.infer<typeof registerSchema>) => {
-    console.log(values);
-}
+
 
 export const SignupCard =()=>{
     const {mutate} = useRegister();
@@ -26,7 +24,10 @@ export const SignupCard =()=>{
             password:"",
         },
     })
- 
+    const onsubmit = (values: z.infer<typeof registerSchema>) => {
+        mutate({json:values});
+    };
+    
     return (
 
         <Card className="w-full h-full md:w-[487px] border-none shadow-none">
