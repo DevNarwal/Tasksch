@@ -16,6 +16,7 @@ export const useRegister = ()=>{
             const response = await client.api.auth.register["$post"]({json});
             return await response.json();
         },
+        
     });
     return mutation;
 }

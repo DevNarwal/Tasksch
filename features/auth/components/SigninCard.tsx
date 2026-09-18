@@ -1,3 +1,4 @@
+"use client";
 import { DottedSeprator } from "@/components/dotted-seprator";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,7 +29,7 @@ import { useLogin } from "../api/use-login";
 
 
 export const SigninCard = () => {
-    const {mutate} = useLogin();
+    const {mutate   ,isPending} = useLogin();
 
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
@@ -102,7 +103,7 @@ export const SigninCard = () => {
                         />
 
                         {/* Login button */}
-                        <Button
+                        <Button disabled={isPending}
                             type="submit"
                             size="lg"
                             className="w-full"
