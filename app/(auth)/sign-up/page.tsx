@@ -1,4 +1,4 @@
-import { getUser } from "@/features/auth/actions";  
+import { getUser } from "@/features/auth/queries";  
 import {redirect} from "next/navigation";
 import { SignupCard } from "@/features/auth/components/SignupCard";
 const SignUp = async() => {

@@ -23,6 +23,7 @@ export const useLogout = ()=>{
         },
         onSuccess: ()=>{
             queryClient.removeQueries({queryKey:["current"]});
+            queryClient.invalidateQueries({queryKey:["workspaces"]});
             router.replace("/sign-in");
         }
     });

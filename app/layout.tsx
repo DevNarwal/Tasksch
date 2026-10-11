@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(inter.className, "antialiased min-h-screen")}
+        className="bg-gradient-to-r from-white via-[#f9fcff] to-[#f1f7ff]"
       >
         <QueryProvider>
           {children}

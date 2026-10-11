@@ -1,5 +1,5 @@
 import { SigninCard } from "@/features/auth/components/SigninCard";
-import { getUser } from "@/features/auth/actions";
+import { getUser } from "@/features/auth/queries";
 import {redirect} from "next/navigation";
 const Signin = async() => {
 
