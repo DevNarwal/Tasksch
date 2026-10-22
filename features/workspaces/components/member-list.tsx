@@ -52,7 +52,7 @@ export const MemberList = () => {
 
     return (
        
-        <Card  className="w-full h-full border-none shadow-none ">
+        <Card  className="w-full h-full bg-white border-2 border-[#dbe7f5] ">
             <ConfrimDialogue/>
             <CardHeader className="flex flex-row items-center gap-x-4 p-7 space-y-0">
                 <Button asChild variant="secondary" size="sm" >
@@ -69,7 +69,8 @@ export const MemberList = () => {
             <div className="px-7">
                 <DottedSeprator/>
             </div>
-            <CardContent className="p-7">
+            <CardContent className="p-7 ">
+
                 {isPending && <p className="text-sm text-muted-foreground">Loading members...</p>}
                 {error && <p className="text-sm text-destructive">{error.message}</p>}
                 {!isPending && !error && data?.documents.length === 0 && (
@@ -77,30 +78,30 @@ export const MemberList = () => {
                 )}
                 {data?.documents.map((member,index) => (
                     <Fragment>
-                    <div key={member.$id} className="flex items-center gap-3 py-3">
+                    <div key={member.$id} className="flex items-center gap-3  p-3 border-2 border-[#dbe7f5] rounded-xl">
                         <MemberAvtar
-                            className="size-10"
+                            className="size-10  border-2 border-neutral-400"
                             fallbackClassName="text-lg"
                             name={member.name}
                         />
                         <div className="min-w-0">
                             <p className="truncate font-medium">{member.name}</p>
-                            <p className="truncate text-sm text-muted-foreground">{member.email}</p>
+                            <p className="truncate text-sm text-neutral-700">{member.email}</p>
                         </div>
-                        <DropdownMenu>
+                        <DropdownMenu >
                             <DropdownMenuTrigger asChild>
                                 <Button className="ml-auto" variant="secondary" size="icon">
                                     <MoreVertical className="size-4 text-muted-foreground"/>
                                 </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent side="bottom" align="end">
-                                <DropdownMenuItem className="font-medium" onClick={ ()=>handleUpdateMember(member.$id , MemberRole.ADMIN)} disabled={isUpdatingMember} >
+                            <DropdownMenuContent side="bottom" align="end" className= " p-2 bg-white border-2 border-[#dbe7f5] rounded-lg">
+                                <DropdownMenuItem  className="font-medium cursor-pointer px-1 border-1 border-[#dbe7f5]" onClick={ ()=>handleUpdateMember(member.$id , MemberRole.ADMIN)} disabled={isUpdatingMember} >
                                     Set as Administrator
                                 </DropdownMenuItem>
-                                <DropdownMenuItem className="font-medium" onClick={ ()=>handleUpdateMember(member.$id , MemberRole.MEMBER)} disabled={isUpdatingMember} >
+                                <DropdownMenuItem className="font-medium cursor-pointer px-1 border-1 border-[#dbe7f5]" onClick={ ()=>handleUpdateMember(member.$id , MemberRole.MEMBER)} disabled={isUpdatingMember} >
                                     Set as Member
                                 </DropdownMenuItem>
-                                <DropdownMenuItem className="font-medium text-amber-700" onClick={ ()=>handleDeleteMember(member.$id)} disabled={isDeletingMember} >
+                                <DropdownMenuItem className="font-medium text-amber-700 cursor-pointer px-1 border-1 border-[#dbe7f5]" onClick={ ()=>handleDeleteMember(member.$id)} disabled={isDeletingMember} >
                                     Remove Member
                                 </DropdownMenuItem>
                             </DropdownMenuContent>

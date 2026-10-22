@@ -132,14 +132,15 @@ export const EditWorkspaceForm = ({onCancle , initialValues}:EditWorkspacesFormP
         <div className="flex flex-col gap-y-4 m-5 "> 
             <DeleteDialog/>
             <ResetDialog/>
-            <Card className="w-full h-full border-none shadow-non  bg-[#f7faff] border border-[#daeaff] p-4  ">
+            <div className="flex flex-row">
+            <Card className="w-full h-full border-2 shadow-non  bg-[#f7faff]  border-[#dbe7f5] p-4  ">
                 <CardHeader className="flex flex-row items-center gap-x-4 space-y-0 p-7">
                     <Button size="sm" variant="secondary" onClick={onCancle ? onCancle: ()=> router.push(`/workspaces/${initialValues.$id}`) }>
                         <ArrowLeftIcon  className="size-4 mr-2"/>
                         Back
                     </Button>
                     
-                    <CardTitle className="absolute left-1/2 -translate-x-1/2 text-xl font-bold">
+                    <CardTitle >
                     {initialValues.name}
                     </CardTitle>
                     
@@ -260,8 +261,9 @@ export const EditWorkspaceForm = ({onCancle , initialValues}:EditWorkspacesFormP
 
             </Card>
             <DottedSeprator/>
-            <Card className="w-full h-full   bg-[#f7faff] border border-[#daeaff] p-4 ">
-                <CardContent className="p-7">
+            <div   >
+            <Card className="  bg-[#f7faff] border-2 border-[#daeaff] p-4 ">
+                <CardContent className="p-7 ">
                     <div className="flex flex-col ">
                         <h3 className="font-bold" > Invite Members</h3>
                         <p className="text-sm text-muted-foreground">Use the invite link to add members to your workspace</p>
@@ -288,8 +290,8 @@ export const EditWorkspaceForm = ({onCancle , initialValues}:EditWorkspacesFormP
 
                 </CardContent>
             </Card>
-            <DottedSeprator/>
-            <Card className="w-full h-full   bg-[#f7faff] border border-[#daeaff] p-4 ">
+         
+            <Card className=" w-full sm:w-full md:w-[500px] bg-[#f7faff] border-2 border-[#daeaff] p-4 ">
                 <CardContent className="p-7">
                     <div className="flex flex-col ">
                         <h3 className="font-bold" >Danger Zone</h3>
@@ -305,6 +307,8 @@ export const EditWorkspaceForm = ({onCancle , initialValues}:EditWorkspacesFormP
 
                 </CardContent>
             </Card>
+            </div>
+        </div>
         </div>
     )
 };

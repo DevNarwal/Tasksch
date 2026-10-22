@@ -34,10 +34,12 @@ export const UserButton =()=>{
     const avtarFallback = name ? name.charAt(0).toUpperCase() : email.charAt(0).toUpperCase() ?? "U";
 
     return (
+        
         <DropdownMenu modal={false}>
+
             <DropdownMenuTrigger className='outline-none relative '>
                 <Avatar className='size-10 hover:opacity-75 transition border border-neutral-300 '> 
-                    <AvatarFallback className='bg-neutral-200 font-medium text-neutral-500 flex items-center justify-center' >
+                    <AvatarFallback className='bg-white font-medium text-neutral-500 flex items-center justify-center' >
 
                         {avtarFallback}
 
@@ -45,12 +47,12 @@ export const UserButton =()=>{
                 </Avatar>
             </DropdownMenuTrigger>
 
-            <DropdownMenuContent align='end' side='bottom' className='w-60' sideOffset={10}>
+            <DropdownMenuContent  align='end' side='bottom' className='w-60 bg-white border-2 border-[#dbe7f5] rounded-lg' sideOffset={10} >
 
                 <div className='  flex flex-col items-center justify-center gap-2 px-2.5 py-4'>
 
                     <Avatar className='size-[52px] border  border-neutral-300 '> 
-                    <AvatarFallback className='bg-neutral-200 text-xl font-medium text-neutral-500 flex items-center justify-center' >
+                    <AvatarFallback className='bg-white text-xl font-medium text-neutral-500 flex items-center justify-center' >
 
                         {avtarFallback}
 
@@ -76,6 +78,8 @@ export const UserButton =()=>{
             </DropdownMenuContent>
 
         </DropdownMenu>
+        
+        
     )
     
 }

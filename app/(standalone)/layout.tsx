@@ -9,7 +9,8 @@ interface StandaloneLayoutProps{
 const StandaloneLayout = ( {children}:StandaloneLayoutProps)=>{
 
     return (
-        <main className="bg-[#f1f6fc] border-r border-[#dbe7f5]">
+        
+        <main className="bg-gradient-to-r from-white via-[#f9fcff] to-[#f1f7ff]  border-[#dbe7f5]">
             <div className="max-auto max-w-screen-2xl p-4 ">
                 <nav className="flex justify-between items-center h-full">
                     <Link href="/">
@@ -22,6 +23,8 @@ const StandaloneLayout = ( {children}:StandaloneLayoutProps)=>{
                 </div>
             </div>
         </main>
+        
+        
     )
 
 };

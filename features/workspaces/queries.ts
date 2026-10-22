@@ -71,7 +71,9 @@ export const getWorkspaceUpdate = async({workspaceId}:getWorkspaceUpdateProps)=>
 
         const member = await getMember({databases  ,userId:user.$id , workspaceId }  );
 
-        if(!member) return null;
+        if(!member) {
+            throw new Error("Unauthorized");
+        }
         
         const workspace = await databases.getRow<Workspace>(
             Database_ID,

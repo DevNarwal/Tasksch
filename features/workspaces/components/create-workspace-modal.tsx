@@ -8,9 +8,11 @@ export const CreateWorkspaceModel = ()=>{
     const {isOpen , setisOpen , close}=useCreateWorkspaceModal();
 
     return(
+       
         <ResponsiveModal open={isOpen} onOpenChange={setisOpen  }>
             <CreateWorkspaceForm onCancle={close}/>
         </ResponsiveModal>
+        
 
     )
 }

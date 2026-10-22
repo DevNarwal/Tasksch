@@ -55,7 +55,8 @@ export const CreateWorkspaceForm = ({onCancle}:CreateWorkspacesFormProps)=>{
     }
 
     return (
-        <Card className="w-full h-full border-none shadow-none">
+        
+        <Card className="w-full h-full bg-white border-2 border-[#dbe7f5] rounded-lg">
             <CardHeader className="flex p-7">
                 <CardTitle className="text-xl font-bold">
                     Create a Workspace 
@@ -63,7 +64,7 @@ export const CreateWorkspaceForm = ({onCancle}:CreateWorkspacesFormProps)=>{
             </CardHeader>
 
             <div className="px-7"> 
-                <DottedSeprator/>
+                <DottedSeprator />
             </div>
             <CardContent className="p-7">
                 <Form {...form}>
@@ -112,13 +113,13 @@ export const CreateWorkspaceForm = ({onCancle}:CreateWorkspacesFormProps)=>{
                                         ):(
                                             <Avatar className="size-[72px] ">
                                                 <AvatarFallback>
-                                                    <ImageIcon className="size-[36px] text-neutral-400"/>
+                                                    <ImageIcon className="size-[36px] text-neutral-400 "/>
                                                 </AvatarFallback>
                                             </Avatar>
                                         )}
                                         <div className="flex flex-col ">
                                             <p className="text-sm">Workspace Icon</p>
-                                            <p className="text-sm text-muted-foreground" >JPG , PNG, SVG or JPEG max 1MB  </p>
+                                            <p className="text-sm   text-neutral-700" >JPG , PNG, SVG or JPEG max 1MB  </p>
                                             <input
                                             type="file"
                                             className="hidden"

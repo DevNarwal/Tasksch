@@ -10,8 +10,9 @@ const Signin = async() => {
     }
 
     return (
-
+        <div className="bg-white rounded-lg border-[#dbe7f5] border-2">
         <SigninCard/>
+        </div>
     )
 
 };
